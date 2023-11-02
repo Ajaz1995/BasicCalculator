@@ -4,7 +4,7 @@ pipeline {
         stage('Build Java Project') {
             steps {
                 sh 'javac BasicCalculator.java'
-                sh 'jar cfm BasicCalculator.jar Manifest.txt BasicCalculator.class'
+                sh 'jar cf BasicCalculator.jar BasicCalculator.class'
                 sh 'mv BasicCalculator.jar /var/jenkins_home/BasicCalculator.jar'
             }
         }
