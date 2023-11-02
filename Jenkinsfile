@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build Java Project') {
             steps {
-                sh 'javac HelloWorld.java'
+                sh 'javac BasicCalculator.java'
                 sh 'jar cfm BasicCalculator.jar Manifest.txt BasicCalculator.class'
                 sh 'mv BasicCalculator.jar /var/jenkins_home/BasicCalculator.jar'
             }
         }
       
-        stage('Execute HelloWorld') {
+        stage('Execute Calculator') {
             steps {
                 sh 'cp /var/jenkins_home/BasicCalculator.jar .'
                 sh 'java -jar BasicCalculator.jar'
