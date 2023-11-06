@@ -5,13 +5,12 @@ pipeline {
             steps {
                 sh 'javac BasicCalculator.java'
                 sh 'jar cf BasicCalculator.jar BasicCalculator.class'
-                sh 'mv BasicCalculator.jar /var/jenkins_home/BasicCalculator.jar'
+                sh 'pwd'
             }
         }
       
         stage('Execute Calculator') {
             steps {
-                sh 'cp /var/jenkins_home/BasicCalculator.jar .'
                 sh 'java -jar BasicCalculator.jar'
             }
          }
